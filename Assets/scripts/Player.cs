@@ -4,10 +4,10 @@ public class Player : MonoBehaviour {
 
     private readonly string[] colourStrings = { "purple", "orange", "teal", "yellow" };
     private readonly Color[] colours = {
-        new Color(132, 0, 205, 255),
-        new Color(255, 116, 0, 255),
-        new Color(0, 195, 195, 255),
-        new Color(255, 255, 0, 255)
+        new Color(132f / 255f, 0, 205f / 255f),
+        new Color(255f / 255f, 116f / 255f, 0),
+        new Color(0, 195f / 255f, 195f / 255f),
+        new Color(255f / 255f, 255f / 255f, 0)
     };
 
     private Rigidbody2D rb;
@@ -36,15 +36,15 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == currentColour)
+        if (other.tag != currentColour)
         {
-
+            Debug.Log("Game Over!");
         }
     }
 
     private void SetRandomColour()
     {
-        int index = Random.Range(0, 3);
+        int index = Random.Range(0, 4);
         currentColour = colourStrings[index];
         sr.color = colours[index];
     }
