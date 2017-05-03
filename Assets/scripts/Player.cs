@@ -52,8 +52,17 @@ public class Player : MonoBehaviour {
     private void SetRandomColour()
     {
         int index = Random.Range(0, 4);
-        currentColour = colourStrings[index];
-        sr.color = colours[index];
+
+        if (sr.color == colours[index])
+        {
+            SetRandomColour();
+        }
+        else
+        {
+            currentColour = colourStrings[index];
+            sr.color = colours[index];
+        }
+
     }
 
 }
