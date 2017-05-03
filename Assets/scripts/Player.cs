@@ -36,6 +36,13 @@ public class Player : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag == "colourChanger")
+        {
+            SetRandomColour();
+            Destroy(other.gameObject);
+            return;
+        }
+
         if (other.tag != currentColour)
         {
             Debug.Log("Game Over!");

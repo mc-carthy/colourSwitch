@@ -8,6 +8,7 @@ TagManager:
   - orange
   - teal
   - yellow
+  - colourChanger
   layers:
   - Default
   - TransparentFX
